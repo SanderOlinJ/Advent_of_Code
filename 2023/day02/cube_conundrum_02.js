@@ -1,5 +1,5 @@
 var fs = require("fs")
-var dataSet = fs.readFileSync("data.txt").toString().split("\r\n")
+var data = fs.readFileSync("data.txt", "utf-8").split("\r\n")
 
 const testData = [
     "Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green",
@@ -9,75 +9,24 @@ const testData = [
     "Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green"
 ]
 
+function solvePuzzle(dataSet){
+    return dataSet.reduce((sum, line) => {
+        line = line.substring(line.indexOf(":")+1)
+        const entries = line.split(/[:,;]/)
+        const minCubes = { red: 0, green: 0, blue: 0 }
 
-let minimumAmountOfCubes = [
-    {
-        "color": "red",
-        "amount": 0
-    },
-    {
-        "color": "green",
-        "amount": 0
-    },
-    {
-        "color": "blue",
-        "amount": 0
-    }
-]
+        for (let entry of entries) {
+            const [amount, color] = entry.trim().split(" ")
+            minCubes[color] = Math.max(minCubes[color], parseInt(amount))
+        }
 
-function refreshArray() {
-    for (let i in minimumAmountOfCubes) {
-        minimumAmountOfCubes[i].amount = 0
-    }
+        let product = 1
+        for (let i in minCubes) {
+            product *= minCubes[i]
+        }
+
+        return sum + product
+    }, 0)
 }
 
-
-function solvePuzzle(array){
-    let totalSum = 0;
-    for (let i in array) {
-        refreshArray()
-        let stringToParse = array[i]
-        stringToParse = stringToParse.substring(stringToParse.indexOf(":") + 2)
-        while (stringToParse.length > 0){
-
-            let temp = stringToParse
-            if (stringToParse.includes(";")){
-                temp = stringToParse.substring(0, stringToParse.indexOf(";"))
-            }
-            while (temp.length > 0){
-                let temp2 = temp
-                if (temp.includes(",")){
-                    temp2 = temp.substring(0, temp.indexOf(","))
-                }
-                let amountOfCubes = temp2.replace(/\D/g, "")
-                let color = temp2.replace(/^[\s\d]+/, "")
-                for (let i in minimumAmountOfCubes) {
-                    if (color === minimumAmountOfCubes[i].color){
-                        if (parseInt(amountOfCubes) <= minimumAmountOfCubes[i].amount){
-                            continue
-                        }
-                        minimumAmountOfCubes[i].amount = amountOfCubes
-                    }
-                }
-                if (temp.includes(",")){
-                    temp = temp.substring(temp.indexOf(",") + 2)
-                } else {
-                    temp = ""
-                }
-            }
-            if (stringToParse.includes(";")) {
-                stringToParse = stringToParse.substring(stringToParse.indexOf(";") + 2)
-            } else {
-                stringToParse = ""
-            }
-        }
-        let tempSum = 1
-        for (let i in minimumAmountOfCubes) {
-            tempSum *= minimumAmountOfCubes[i].amount
-        }
-        totalSum += tempSum
-    }
-    return totalSum
-}
-
-console.log(solvePuzzle(dataSet))
+console.log(solvePuzzle(data))
