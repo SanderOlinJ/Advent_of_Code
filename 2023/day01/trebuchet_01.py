@@ -1,5 +1,5 @@
 testData = ["1abc2", "pqr3stu8vwx", "a1b2c3d4e5f", "treb7uchet"]
-file = open("day01-data.txt", "r")
+file = open("data.txt", "r")
 data = file.read()
 data_as_list = data.split("\n")
 

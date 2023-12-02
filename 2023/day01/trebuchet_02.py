@@ -1,6 +1,6 @@
 from word2number import w2n
 
-file = open("day01-data.txt", "r")
+file = open("data.txt", "r")
 data = file.read()
 data_as_list = data.split("\n")
 
