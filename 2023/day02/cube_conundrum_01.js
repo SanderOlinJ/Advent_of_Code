@@ -1,5 +1,7 @@
-var fs = require("fs")
-var dataSet = fs.readFileSync("data.txt").toString().split("\r\n")
+const fs = require("fs")
+
+const data = fs.readFileSync("data.txt", "utf8").split("\r\n")
+const maxCubes = { red: 12, green: 13, blue: 14 }
 
 const testData = [
   "Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green",
@@ -9,66 +11,19 @@ const testData = [
   "Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green"
 ]
 
-let acceptableAmountOfCubes = [
-  {
-    "color": "red",
-    "amount": 12
-  },
-  {
-    "color": "green",
-    "amount": 13
-  },
-  {
-    "color": "blue",
-    "amount": 14
-  }
-]
+function solvePuzzle(dataSet) {
+  return dataSet.reduce((sum, line) => {
+    const game = line.match(/Game (\d+):/)
+    const gameId = parseInt(game[1])
+    const entries = line.split(/[:,;]/).slice(1)
 
+    for (let entry of entries) {
+      const [amount, color] = entry.trim().split(" ")
+      if (parseInt(amount) > maxCubes[color]) return sum
+    }
 
-function solvePuzzle(array){
-  let totalSum = 0;
-  for (let i in array) {
-    let acceptable = true
-    let stringToParse = array[i]
-    const gameId = stringToParse.substring(5, stringToParse.indexOf(":"))
-    stringToParse = stringToParse.substring(stringToParse.indexOf(":") + 2)
-    while (stringToParse.length > 0 && acceptable){
-      let temp = stringToParse
-      if (stringToParse.includes(";")){
-        temp = stringToParse.substring(0, stringToParse.indexOf(";"))
-      }
-      while (temp.length > 0){
-        let temp2 = temp
-        if (temp.includes(",")){
-          temp2 = temp.substring(0, temp.indexOf(","))
-        }
-        let amountOfCubes = temp2.replace(/\D/g, "")
-        let color = temp2.replace(/^[\s\d]+/, "")
-        for (let i in acceptableAmountOfCubes) {
-          if (color === acceptableAmountOfCubes[i].color){
-            if (parseInt(amountOfCubes) <= acceptableAmountOfCubes[i].amount){
-              continue
-            }
-            acceptable = false
-          }
-        }
-        if (temp.includes(",")){
-          temp = temp.substring(temp.indexOf(",") + 2)
-        } else {
-          temp = ""
-        }
-      }
-      if (stringToParse.includes(";")) {
-        stringToParse = stringToParse.substring(stringToParse.indexOf(";") + 2)
-      } else {
-        stringToParse = ""
-      }
-    }
-    if (acceptable) {
-      totalSum += parseInt(gameId)
-    }
-  }
-  return totalSum
+    return sum + gameId
+  }, 0)
 }
 
-console.log(solvePuzzle(dataSet))
+console.log(solvePuzzle(data))
