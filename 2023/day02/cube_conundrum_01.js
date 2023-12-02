@@ -45,7 +45,10 @@ function solvePuzzle(array){
         let amountOfCubes = temp2.replace(/\D/g, "")
         let color = temp2.replace(/^[\s\d]+/, "")
         for (let i in acceptableAmountOfCubes) {
-          if (color === acceptableAmountOfCubes[i].color && amountOfCubes > acceptableAmountOfCubes[i].amount){
+          if (color === acceptableAmountOfCubes[i].color){
+            if (parseInt(amountOfCubes) <= acceptableAmountOfCubes[i].amount){
+              continue
+            }
             acceptable = false
           }
         }
