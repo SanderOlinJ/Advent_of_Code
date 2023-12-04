@@ -10,6 +10,7 @@
 #define MAX_SIZE_AFTER 25
 
 void readFromFile(const char *filename);
-int solvePuzzlePartOne();
+int solvePuzzlePartOne(int numbersBefore[MAX_LINES][MAX_SIZE_BEFORE], int numbersAfter[MAX_LINES][MAX_SIZE_AFTER]);
+int solvePuzzlePartTwo(int numbersBefore[MAX_LINES][MAX_SIZE_BEFORE], int numbersAfter[MAX_LINES][MAX_SIZE_AFTER]);
 
 #endif //DAY04_SCRATCHCARDS_H
