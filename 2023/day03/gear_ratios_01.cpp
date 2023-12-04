@@ -1,3 +1,4 @@
+#include "gear_ratios_01.h"
 #include <iostream>
 #include <fstream>
 #include <vector>
@@ -5,23 +6,10 @@
 #include <sstream>
 using namespace std;
 
-struct Position {
-    int row, col;
-};
+vector<vector<Number>> numbersPartOne;
+vector<vector<SpecialCharacter>> specialCharactersPartOne;
 
-struct Number {
-    int value, length;
-    Position position;
-};
-
-struct SpecialCharacter {
-    Position position;
-};
-
-vector<vector<Number>> numbers;
-vector<vector<SpecialCharacter>> specialCharacters;
-
-void readFromFile(const string &filename) {
+void readFromFilePartOne(const string &filename) {
     ifstream file(filename);
     string line;
     int row = 0;
@@ -30,8 +18,8 @@ void readFromFile(const string &filename) {
         std::stringstream ss(line);
         char ch;
         int num, col = 0;
-        numbers.resize(row + 1);
-        specialCharacters.resize(row + 1);
+        numbersPartOne.resize(row + 1);
+        specialCharactersPartOne.resize(row + 1);
 
         while (ss >> ch) {
             if (isdigit(ch)) {
@@ -39,13 +27,13 @@ void readFromFile(const string &filename) {
                 ss.putback(ch);
                 ss >> num;
                 int length = int(to_string(num).length()) - 1;
-                numbers[row].push_back({num, length, {row, startCol}});
+                numbersPartOne[row].push_back({num, length, {row, startCol}});
                 col += length;
             } else if (!isspace(ch)) {
                 if (ch != '.') {
-                    specialCharacters[row].push_back({row, col});
+                    specialCharactersPartOne[row].push_back({row, col});
                 }
-                numbers[row].push_back({0, 0, {row, col}});
+                numbersPartOne[row].push_back({0, 0, {row, col}});
             }
             col++;
         }
@@ -53,12 +41,13 @@ void readFromFile(const string &filename) {
     }
 }
 
-int solvePuzzle() {
+int solvePuzzlePartOne() {
+    readFromFilePartOne("data.txt");
     int sum = 0;
-    for (const auto& rowSpecialChars : specialCharacters) {
+    for (const auto& rowSpecialChars : specialCharactersPartOne) {
         for (const SpecialCharacter& sc : rowSpecialChars) {
-            for (int i = max(0, sc.position.row - 1); i <= min((int)numbers.size() - 1, sc.position.row + 1); i++) {
-                for (const Number &num : numbers[i]) {
+            for (int i = max(0, sc.position.row - 1); i <= min((int)numbersPartOne.size() - 1, sc.position.row + 1); i++) {
+                for (const Number &num : numbersPartOne[i]) {
                     if (num.value == 0) continue;
                     if (abs((num.position.col + num.length) - sc.position.col) > 1
                         && abs(num.position.col - sc.position.col) > 1) {
@@ -70,11 +59,4 @@ int solvePuzzle() {
         }
     }
     return sum;
-}
-
-
-int main() {
-    readFromFile("data.txt");
-    cout << solvePuzzle();
-    return 0;
 }
