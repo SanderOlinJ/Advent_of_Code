@@ -8,25 +8,23 @@ class Object {
     }
 }
 
-function readAndSplitArray() {
-    let data = fs.readFileSync("data.txt", "utf8").split("\r\n")
-    const array = data.filter(function(entry) { return entry.trim() !== ""; });
-    const seedsText = array.at(0).replace("seeds: ", "").split(" ")
-    let fullArray = [];
-    fullArray.push(seedsText);
+const readAndSplitArray = () => {
+    const data = fs.readFileSync("data.txt", "utf8")
+        .split("\r\n").filter(entry => entry.trim() !== "")
+    const seedsText = data[0].replace("seeds: ", "").split(" ")
+    const fullArray = [seedsText]
     let tempArray = []
-    for (let i = 2; i < array.length; i++){
-        const line = array.at(i).split(" ");
-        if (isNaN(parseInt(line[0])) || i === array.length - 1) {
-            if (i === array.length - 1) {
-                tempArray.push(new Object(parseInt(line[0]), parseInt(line[1]), parseInt(line[2])))
-            }
-            fullArray.push(tempArray)
+
+    data.forEach((line, index) => {
+        const [destinationRange, sourceRange, length] = line.split(" ").map(Number)
+        if (isNaN(destinationRange) || index === data.length - 3) {
+            fullArray.push([...tempArray])
             tempArray = []
-            continue
         }
-        tempArray.push(new Object(parseInt(line[0]), parseInt(line[1]), parseInt(line[2])))
-    }
+        else {
+            tempArray.push(new Object(destinationRange, sourceRange, length))
+        }
+    })
     return fullArray
 }
 
