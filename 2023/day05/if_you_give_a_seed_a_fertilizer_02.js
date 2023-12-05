@@ -8,11 +8,14 @@ class Object {
     }
 }
 
-const readAndSplitArray = () => {
+const readSplitAndSolve = () => {
     const data = fs.readFileSync("data.txt", "utf8")
         .split("\r\n").filter(entry => entry.trim() !== "")
     const seedsText = data[0].replace("seeds: ", "").split(" ")
-    const fullArray = [seedsText]
+
+    let min = Infinity
+    const fullArray = []
+    fullArray[0] = min
     let tempArray = []
 
     data.slice(2).forEach((line, index) => {
@@ -25,25 +28,30 @@ const readAndSplitArray = () => {
             tempArray.push(new Object(destinationRange, sourceRange, length))
         }
     })
-    return fullArray
+
+    for (let i = 0; i < seedsText.length; i+=2) {
+        console.log(i)
+        const seedStart = parseInt(seedsText[i])
+        const seedEnd = seedStart + parseInt(seedsText[i+1])
+        for (let j = seedStart; j < seedEnd; j++){
+            fullArray[0] = j
+            min = Math.min(min, solvePuzzle(fullArray))
+        }
+    }
+    return min
 }
 
 function solvePuzzle(array) {
-    array = readAndSplitArray()
     for (let i = 1; i < array.length; i++) {
-        for (let j = 0; j < array[0].length; j++){
-            for (let k = 0; k < array[i].length; k++){
-                if (array[i][k].sourceRange <= array[0][j]
-                    && array[0][j] <= (array[i][k].sourceRange + (array[i][k].length - 1))){
-                    array[0][j] = array[i][k].destinationRange + (array[0][j] - array[i][k].sourceRange)
-                    break
-                }
+        for (let j = 0; j < array[i].length; j++){
+            if (array[i][j].sourceRange <= array[0]
+                && array[0] <= (array[i][j].sourceRange + (array[i][j].length - 1))){
+                array[0] = array[i][j].destinationRange + (array[0] - array[i][j].sourceRange)
+                break
             }
         }
     }
-    return Math.min(...array[0])
+    return array[0]
 }
 
-console.log(solvePuzzle())
-
-
+console.log(readSplitAndSolve())
