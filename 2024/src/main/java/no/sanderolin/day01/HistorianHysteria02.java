@@ -1,10 +1,7 @@
 package no.sanderolin.day01;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class HistorianHysteria02 {
 
@@ -21,17 +18,13 @@ public class HistorianHysteria02 {
                 left.add(Integer.parseInt(leftString));
                 right.add(Integer.parseInt(rightString));
             }
-            Collections.sort(right);
-            int rightNumber;
-            for (Integer integer : left) {
-                int firstIndex = right.indexOf(integer);
-                int lastIndex = right.lastIndexOf(integer);
-                if (firstIndex == -1) {
-                    rightNumber = 0;
-                } else {
-                    rightNumber = lastIndex - firstIndex + 1;
-                }
-                similarityScore += (integer * rightNumber);
+            HashMap<Integer, Integer> frequency = new HashMap<>();
+            for (Integer num : right) {
+                frequency.put(num, frequency.getOrDefault(num, 0) + 1);
+            }
+
+            for (Integer num : left) {
+                similarityScore += num * frequency.getOrDefault(num, 0);
             }
 
         } catch (Exception e) {
