@@ -1,7 +1,7 @@
 package no.sanderolin;
 
-import no.sanderolin.puzzle.day01.HistorianHysteria01;
-import no.sanderolin.puzzle.day01.HistorianHysteria02;
+import no.sanderolin.day01.HistorianHysteria01;
+import no.sanderolin.day01.HistorianHysteria02;
 
 import java.util.Scanner;
 
