@@ -2,6 +2,8 @@ package no.sanderolin;
 
 import no.sanderolin.day01.HistorianHysteria01;
 import no.sanderolin.day01.HistorianHysteria02;
+import no.sanderolin.day02.RedNosedReports01;
+import no.sanderolin.day02.RedNosedReports02;
 
 import java.util.Scanner;
 
@@ -22,6 +24,10 @@ public class Main {
                     HistorianHysteria01.solve();
                 } else if (day == 1 && part == 2) {
                     HistorianHysteria02.solve();
+                } else if (day == 2 && part == 1) {
+                    RedNosedReports01.solve();
+                } else if (day == 2 && part == 2 ) {
+                    RedNosedReports02.solve();
                 } else {
                     System.out.println("No solution available for Day " + day + ", Part " + part);
                 }
