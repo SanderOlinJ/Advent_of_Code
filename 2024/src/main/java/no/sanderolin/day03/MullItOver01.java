@@ -11,8 +11,9 @@ public class MullItOver01 {
         File file = new File("src/main/resources/day03.txt");
         try (Scanner scanner = new Scanner(file)) {
             int sum = 0;
+            Pattern pattern = Pattern.compile("mul\\((\\d{1,3}),(\\d{1,3})\\)");
             while (scanner.hasNextLine()) {
-                Matcher matcher = Pattern.compile("mul\\((\\d{1,3}),(\\d{1,3})\\)").matcher(scanner.nextLine());
+                Matcher matcher = pattern.matcher(scanner.nextLine());
                 while (matcher.find()) {
                     int left = Integer.parseInt(matcher.group(1));
                     int right = Integer.parseInt(matcher.group(2));

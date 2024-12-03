@@ -39,8 +39,8 @@ public class MullItOver02 {
             else if (match.equals("don't()")) isEnabled = false;
             else {
                 if (!isEnabled) continue;
-                int left = Integer.parseInt(match.substring(match.indexOf('(') + 1, match.indexOf(',')));
-                int right = Integer.parseInt(match.substring(match.indexOf(',') + 1, match.indexOf(')')));
+                int left = Integer.parseInt(match.substring(4, match.indexOf(',')));
+                int right = Integer.parseInt(match.substring(match.indexOf(',') + 1, match.length() - 1));
                 sum += left * right;
             }
         }
