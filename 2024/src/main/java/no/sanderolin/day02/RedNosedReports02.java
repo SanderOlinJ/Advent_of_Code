@@ -20,7 +20,6 @@ public class RedNosedReports02 {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-
         System.out.println(safeLevels);
     }
 
@@ -28,7 +27,6 @@ public class RedNosedReports02 {
         for (int i = 0; i < values.size(); i++) {
             List<Integer> modifiedLevels = new ArrayList<>(values);
             modifiedLevels.remove(i);
-
             if (areLevelsSafe(modifiedLevels)) {
                 return true;
             }
