@@ -6,6 +6,8 @@ import no.sanderolin.day02.RedNosedReports01;
 import no.sanderolin.day02.RedNosedReports02;
 import no.sanderolin.day03.MullItOver01;
 import no.sanderolin.day03.MullItOver02;
+import no.sanderolin.day04.CeresSearch01;
+import no.sanderolin.day04.CeresSearch02;
 
 import java.util.Scanner;
 
@@ -34,7 +36,11 @@ public class Main {
                     MullItOver01.solve();
                 } else if (day == 3 && part == 2) {
                     MullItOver02.solve();
-                } else {
+                } else if (day == 4 && part == 1) {
+                    CeresSearch01.solve();
+                } else if (day == 4 && part == 2 ) {
+                    CeresSearch02.solve();
+                }else {
                     System.out.println("No solution available for Day " + day + ", Part " + part);
                 }
             } catch (Exception e) {
