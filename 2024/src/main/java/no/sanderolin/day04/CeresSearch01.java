@@ -7,11 +7,12 @@ import java.util.regex.Pattern;
 
 public class CeresSearch01 {
 
-    private static final List<String> list = new ArrayList<>();
+    private static List<String> list;
     private static final Pattern pattern = Pattern.compile("(?=(XMAS|SAMX))");
     private static int matrixSize;
 
     public static void solve() {
+        list = new ArrayList<>();
         readHorizontalAndVertical();
         handleDiagonals();
         int totalInstances = findInstances();

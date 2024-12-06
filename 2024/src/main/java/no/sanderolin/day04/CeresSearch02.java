@@ -7,15 +7,18 @@ import java.util.regex.Pattern;
 
 public class CeresSearch02 {
 
-    private static final List<String> lines = new ArrayList<>();
-    private static final List<String> leftToRightDiagonalList = new ArrayList<>();
-    private static final List<String> rightToLeftDiagonalList = new ArrayList<>();
+    private static List<String> lines;
+    private static List<String> leftToRightDiagonalList;
+    private static List<String> rightToLeftDiagonalList;
     private static final Pattern pattern = Pattern.compile("(?=(MAS|SAM))");
     private static int numberOfColumns;
 
     private record Pair(int col, int row) {}
 
     public static void solve() {
+        lines = new ArrayList<>();
+        leftToRightDiagonalList = new ArrayList<>();
+        rightToLeftDiagonalList = new ArrayList<>();
         readFromFileToLists();
         readAllDiagonalsToList();
         List<Pair> listOfCentresLeftToRightDiagonal = findCentresInLeftToRightDiagonal(true);

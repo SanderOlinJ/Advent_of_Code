@@ -8,6 +8,8 @@ import no.sanderolin.day03.MullItOver01;
 import no.sanderolin.day03.MullItOver02;
 import no.sanderolin.day04.CeresSearch01;
 import no.sanderolin.day04.CeresSearch02;
+import no.sanderolin.day05.PrintQueue01;
+import no.sanderolin.day05.PrintQueue02;
 
 import java.util.Scanner;
 
@@ -30,7 +32,7 @@ public class Main {
                     HistorianHysteria02.solve();
                 } else if (day == 2 && part == 1) {
                     RedNosedReports01.solve();
-                } else if (day == 2 && part == 2 ) {
+                } else if (day == 2 && part == 2) {
                     RedNosedReports02.solve();
                 } else if (day == 3 && part == 1) {
                     MullItOver01.solve();
@@ -38,9 +40,13 @@ public class Main {
                     MullItOver02.solve();
                 } else if (day == 4 && part == 1) {
                     CeresSearch01.solve();
-                } else if (day == 4 && part == 2 ) {
+                } else if (day == 4 && part == 2) {
                     CeresSearch02.solve();
-                }else {
+                } else if (day == 5 && part == 1) {
+                    PrintQueue01.solve();
+                } else if (day == 5 && part == 2) {
+                    PrintQueue02.solve();
+                } else {
                     System.out.println("No solution available for Day " + day + ", Part " + part);
                 }
             } catch (Exception e) {
