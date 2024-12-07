@@ -10,6 +10,8 @@ import no.sanderolin.day04.CeresSearch01;
 import no.sanderolin.day04.CeresSearch02;
 import no.sanderolin.day05.PrintQueue01;
 import no.sanderolin.day05.PrintQueue02;
+import no.sanderolin.day06.GuardGallivant01;
+import no.sanderolin.day06.GuardGallivant02;
 
 import java.util.Scanner;
 
@@ -46,6 +48,10 @@ public class Main {
                     PrintQueue01.solve();
                 } else if (day == 5 && part == 2) {
                     PrintQueue02.solve();
+                } else if (day == 6 && part == 1) {
+                    GuardGallivant01.solve();
+                } else if (day == 6 && part == 2) {
+                    GuardGallivant02.solve();
                 } else {
                     System.out.println("No solution available for Day " + day + ", Part " + part);
                 }
@@ -64,4 +70,5 @@ public class Main {
 
         scanner.close();
     }
+
 }
