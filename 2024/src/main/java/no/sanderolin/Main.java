@@ -12,6 +12,8 @@ import no.sanderolin.day05.PrintQueue01;
 import no.sanderolin.day05.PrintQueue02;
 import no.sanderolin.day06.GuardGallivant01;
 import no.sanderolin.day06.GuardGallivant02;
+import no.sanderolin.day07.BridgeRepair01;
+import no.sanderolin.day07.BridgeRepair02;
 
 import java.util.Scanner;
 
@@ -52,6 +54,10 @@ public class Main {
                     GuardGallivant01.solve();
                 } else if (day == 6 && part == 2) {
                     GuardGallivant02.solve();
+                } else if (day == 7 && part == 1) {
+                    BridgeRepair01.solve();
+                } else if (day == 7 && part == 2) {
+                    BridgeRepair02.solve();
                 } else {
                     System.out.println("No solution available for Day " + day + ", Part " + part);
                 }
