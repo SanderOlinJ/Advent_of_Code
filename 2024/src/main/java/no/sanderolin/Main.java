@@ -14,6 +14,8 @@ import no.sanderolin.day06.GuardGallivant01;
 import no.sanderolin.day06.GuardGallivant02;
 import no.sanderolin.day07.BridgeRepair01;
 import no.sanderolin.day07.BridgeRepair02;
+import no.sanderolin.day08.ResonantCollinearity01;
+import no.sanderolin.day08.ResonantCollinearity02;
 
 import java.util.Scanner;
 
@@ -58,6 +60,10 @@ public class Main {
                     BridgeRepair01.solve();
                 } else if (day == 7 && part == 2) {
                     BridgeRepair02.solve();
+                } else if (day == 8 && part == 1) {
+                    ResonantCollinearity01.solve();
+                } else if (day == 8 && part == 2) {
+                    ResonantCollinearity02.solve();
                 } else {
                     System.out.println("No solution available for Day " + day + ", Part " + part);
                 }
