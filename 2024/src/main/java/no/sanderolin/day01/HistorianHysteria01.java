@@ -1,10 +1,7 @@
 package no.sanderolin.day01;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class HistorianHysteria01 {
 
@@ -33,5 +30,4 @@ public class HistorianHysteria01 {
         }
         System.out.println(totalDistance);
     }
-
 }
