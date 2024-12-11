@@ -18,6 +18,8 @@ import no.sanderolin.day08.ResonantCollinearity01;
 import no.sanderolin.day08.ResonantCollinearity02;
 import no.sanderolin.day09.DiskFragmenter01;
 import no.sanderolin.day09.DiskFragmenter02;
+import no.sanderolin.day10.HoofIt01;
+import no.sanderolin.day10.HoofIt02;
 
 import java.util.Scanner;
 
@@ -71,6 +73,10 @@ public class Main {
                     DiskFragmenter01.solve();
                 } else if (day == 9 && part == 2) {
                     DiskFragmenter02.solve();
+                } else if (day == 10 && part == 1) {
+                    HoofIt01.solve();
+                } else if (day == 10 && part == 2) {
+                    HoofIt02.solve();
                 } else {
                     System.out.println("No solution available for Day " + day + ", Part " + part);
                 }
