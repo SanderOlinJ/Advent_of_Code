@@ -16,11 +16,14 @@ import no.sanderolin.day07.BridgeRepair01;
 import no.sanderolin.day07.BridgeRepair02;
 import no.sanderolin.day08.ResonantCollinearity01;
 import no.sanderolin.day08.ResonantCollinearity02;
+import no.sanderolin.day09.DiskFragmenter01;
+import no.sanderolin.day09.DiskFragmenter02;
 
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+
         Scanner scanner = new Scanner(System.in);
         boolean continueProgram = true;
 
@@ -64,6 +67,10 @@ public class Main {
                     ResonantCollinearity01.solve();
                 } else if (day == 8 && part == 2) {
                     ResonantCollinearity02.solve();
+                } else if (day == 9 && part == 1) {
+                    DiskFragmenter01.solve();
+                } else if (day == 9 && part == 2) {
+                    DiskFragmenter02.solve();
                 } else {
                     System.out.println("No solution available for Day " + day + ", Part " + part);
                 }
