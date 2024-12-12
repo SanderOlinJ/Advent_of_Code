@@ -20,6 +20,8 @@ import no.sanderolin.day09.DiskFragmenter01;
 import no.sanderolin.day09.DiskFragmenter02;
 import no.sanderolin.day10.HoofIt01;
 import no.sanderolin.day10.HoofIt02;
+import no.sanderolin.day11.PlutonianPebbles01;
+import no.sanderolin.day11.PlutonianPebbles02;
 
 import java.util.Scanner;
 
@@ -29,7 +31,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         boolean continueProgram = true;
 
-        System.out.println("Welcome to Advent of Code Solutions!");
+        System.out.println("Advent of Code 2024!");
 
         while (continueProgram) {
             System.out.print("Enter the day you want to see the solution for (e.g., 1, 2, 3): ");
@@ -77,6 +79,10 @@ public class Main {
                     HoofIt01.solve();
                 } else if (day == 10 && part == 2) {
                     HoofIt02.solve();
+                } else if (day == 11 && part == 1) {
+                    PlutonianPebbles01.solve();
+                } else if (day == 11 && part == 2) {
+                    PlutonianPebbles02.solve();
                 } else {
                     System.out.println("No solution available for Day " + day + ", Part " + part);
                 }
@@ -89,7 +95,7 @@ public class Main {
 
             if (!response.equals("y")) {
                 continueProgram = false;
-                System.out.println("Thank you for using Advent of Code Solutions. Goodbye!");
+                System.out.println("Goodbye!");
             }
         }
 
