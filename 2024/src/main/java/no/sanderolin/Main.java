@@ -22,6 +22,7 @@ import no.sanderolin.day10.HoofIt01;
 import no.sanderolin.day10.HoofIt02;
 import no.sanderolin.day11.PlutonianPebbles01;
 import no.sanderolin.day11.PlutonianPebbles02;
+import no.sanderolin.day12.GardenGroups01;
 
 import java.util.Scanner;
 
@@ -83,6 +84,8 @@ public class Main {
                     PlutonianPebbles01.solve();
                 } else if (day == 11 && part == 2) {
                     PlutonianPebbles02.solve();
+                } else if (day == 12 && part == 1) {
+                    GardenGroups01.solve();
                 } else {
                     System.out.println("No solution available for Day " + day + ", Part " + part);
                 }
