@@ -23,6 +23,9 @@ import no.sanderolin.day10.HoofIt02;
 import no.sanderolin.day11.PlutonianPebbles01;
 import no.sanderolin.day11.PlutonianPebbles02;
 import no.sanderolin.day12.GardenGroups01;
+import no.sanderolin.day12.GardenGroups02;
+import no.sanderolin.day13.ClawContraption01;
+import no.sanderolin.day13.ClawContraption02;
 
 import java.util.Scanner;
 
@@ -86,6 +89,12 @@ public class Main {
                     PlutonianPebbles02.solve();
                 } else if (day == 12 && part == 1) {
                     GardenGroups01.solve();
+                } else if (day == 12 && part == 2) {
+                    GardenGroups02.solve();
+                } else if (day == 13 && part == 1) {
+                    ClawContraption01.solve();
+                } else if (day == 13 && part == 2) {
+                    ClawContraption02.solve();
                 } else {
                     System.out.println("No solution available for Day " + day + ", Part " + part);
                 }
