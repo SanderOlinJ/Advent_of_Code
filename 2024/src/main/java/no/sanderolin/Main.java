@@ -26,6 +26,8 @@ import no.sanderolin.day12.GardenGroups01;
 import no.sanderolin.day12.GardenGroups02;
 import no.sanderolin.day13.ClawContraption01;
 import no.sanderolin.day13.ClawContraption02;
+import no.sanderolin.day14.RestroomRedoubt01;
+import no.sanderolin.day14.RestroomRedoubt02;
 
 import java.util.Scanner;
 
@@ -95,6 +97,10 @@ public class Main {
                     ClawContraption01.solve();
                 } else if (day == 13 && part == 2) {
                     ClawContraption02.solve();
+                } else if (day == 14 && part == 1) {
+                    RestroomRedoubt01.solve();
+                } else if (day == 14 && part == 2) {
+                    RestroomRedoubt02.solve();
                 } else {
                     System.out.println("No solution available for Day " + day + ", Part " + part);
                 }
