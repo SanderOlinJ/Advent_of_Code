@@ -68,8 +68,7 @@ public class WarehouseWoes01 {
                     mapInitialized = true;
                 }
                 if (line.isBlank()) mapComplete = true;
-
-                if (mapComplete) {
+                else if (mapComplete) {
                     for (int i = 0; i < line.length(); i++) {
                         instructions.add(line.charAt(i));
                     }

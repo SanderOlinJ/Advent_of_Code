@@ -14,9 +14,6 @@ public class WarehouseWoes02 {
 
     public static void solve() {
         readFromFile();
-        for (char[] rows : map) {
-            System.out.println(Arrays.toString(rows));
-        }
         moveRobot();
         calculateSumOfBoxGPSCoordinates();
     }
