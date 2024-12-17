@@ -30,6 +30,8 @@ import no.sanderolin.day14.RestroomRedoubt01;
 import no.sanderolin.day14.RestroomRedoubt02;
 import no.sanderolin.day15.WarehouseWoes01;
 import no.sanderolin.day15.WarehouseWoes02;
+import no.sanderolin.day16.ReindeerMaze01;
+import no.sanderolin.day16.ReindeerMaze02;
 
 import java.util.Scanner;
 
@@ -107,6 +109,10 @@ public class Main {
                     WarehouseWoes01.solve();
                 } else if (day == 15 && part == 2) {
                     WarehouseWoes02.solve();
+                } else if (day == 16 && part == 1) {
+                    ReindeerMaze01.solve();
+                } else if (day == 16 && part == 2) {
+                    ReindeerMaze02.solve();
                 } else {
                     System.out.println("No solution available for Day " + day + ", Part " + part);
                 }
